@@ -8,6 +8,7 @@ interface animeInfo {
   description: string;
   rating: number;
 }
+
 export const handleSubmit = (prop: animeInfo) => {
   axios.post('http://localhost:5286/api/anime', prop).then(response => {
     console.log("Anime added successfully", response.data)

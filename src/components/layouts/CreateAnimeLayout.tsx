@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import images from "../../assets/login.png";
 import close from "../../assets/close.png";
 import Sidebar from "../elements/sidebar/Sidebar";
-import { useAnimeForm } from "../../hooks/useAnimeForm";
 
 interface AnimeProp {
   children: React.ReactNode;
@@ -11,7 +10,6 @@ interface AnimeProp {
 const CreateAnimeLayout = (props: AnimeProp) => {
   const { children } = props;
   const [isOpen, setIsOpen] = useState(false);
-  const { handleFormSubmit } = useAnimeForm();
   const handleOpen = () => {
     setIsOpen(true);
   };
@@ -48,12 +46,7 @@ const CreateAnimeLayout = (props: AnimeProp) => {
                     {children}
                   </div>
                 </div>
-                <div className="flex justify-end p-4 border-t">
-                  <button style={{backgroundColor: '#EA4C88', }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#cc3b72')} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#EA4C88")} className="px-4 py-2 text-white transition rounded-lg" onClick={(e) => {
-                    e.preventDefault();
-                    handleFormSubmit(e);
-                  }}> Add </button>
-                </div>
+
               </div>
             </div>
           )}

@@ -1,11 +1,12 @@
 interface inputProps {
-  placeholder: string;
-  image: string;
-  type: string;
+  placeholder?: string;
+  image?: string;
+  type?: string;
 }
+
 const InputForm = (props: inputProps) => { 
   const {placeholder, image, type} = props;
-  return(
+  return (
     <div className="mb-6 rounded-lg">
       <div style={{backgroundColor: '#3B4148'}} className="flex items-center rounded-lg">
         <div style={{backgroundColor: '#363B41'}} className="p-2 rounded-1-md">
@@ -17,4 +18,4 @@ const InputForm = (props: inputProps) => {
   )
 }
 
-export default InputForm
+export default InputForm;

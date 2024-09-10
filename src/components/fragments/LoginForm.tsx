@@ -1,4 +1,4 @@
-import InputForm from '../elements/input/Input'
+import InputForm from '../elements/input/AuthInput'
 import loginImage from '../../assets/login.png'
 import registerImage from '../../assets/password.png'
 import Button from '../elements/buttons/Button'

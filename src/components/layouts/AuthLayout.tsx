@@ -18,7 +18,6 @@ const AuthLayout = (props: AuthProps) => {
   const {type, title, children} = props;
   return (
     <div style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${background})`, backgroundSize: 'cover'}} className="flex items-center justify-center h-screen">
-      
       <div style={{backgroundColor: '#1B1919', borderColor: '#EA4C88'}} className="justify-center w-full max-w-lg p-12 border-2 shadow-2xl rounded-3xl">
         <div className="justify-center mb-5 font-bold text-white ">
           <h1 style={{color: '#EA4C88', fontSize: 40}} className="font-extrabold">{title}</h1>

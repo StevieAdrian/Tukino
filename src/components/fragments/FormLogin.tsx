@@ -12,7 +12,6 @@ const FormLogin = () => {
         </div>
         <Button color='#EA4C88'>SIGN IN</Button>
     </form>
-    
   )
 }
 

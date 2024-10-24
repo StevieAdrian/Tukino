@@ -13,7 +13,6 @@ interface NavProps {
   type: string;
 }
 
-
 const AuthLayout = (props: AuthProps) => {
   const {type, title, children} = props;
   return (

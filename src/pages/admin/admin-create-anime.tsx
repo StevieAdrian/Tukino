@@ -7,7 +7,7 @@ const AdminCreateAnime = () => {
     <div>
       <CreateAnimeLayout>
         <AnimeInput type="text">Title</AnimeInput>
-        <AnimeInput type="text">Episode(s)</AnimeInput>
+        <AnimeInput type="number">Episode(s)</AnimeInput>
         <AnimeInput type="text">Genre</AnimeInput>
         <AnimeInput type="text">Studio</AnimeInput>
         <AnimeInput type="text">Description</AnimeInput>

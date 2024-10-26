@@ -7,6 +7,7 @@ interface animeInfo {
   studio: string;
   description: string;
   rating: number;
+  images: string | null;
 }
 
 export const handleSubmit = (prop: animeInfo) => {

@@ -4,10 +4,11 @@ import { handleSubmit } from "../services/anime-service";
 interface AnimeFormData {
   title: string;
   episodes: number;
-  genre: string;
+  genre: string;  
   studio: string;
   description: string;
   rating: number;
+  images: string | null;
 }
 export const useAnimeForm = () => {
   const [formData, setFormData] = useState<AnimeFormData>({
@@ -16,7 +17,8 @@ export const useAnimeForm = () => {
     genre: '',
     studio: '',
     description: '',
-    rating: 0
+    rating: 0,
+    images: ''
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,6 +27,14 @@ export const useAnimeForm = () => {
     setFormData({
       ...formData,
       [name]: newValue,
+    })
+  }
+
+  const handleImageChange = (base64String: string | null) => {
+    console.log("Base64 Image:", base64String);
+    setFormData({
+      ...formData,
+      images: base64String
     })
   }
 
@@ -37,6 +47,7 @@ export const useAnimeForm = () => {
   return {
     formData,
     handleInputChange,
+    handleImageChange,
     handleFormSubmit
   }
 }

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import images from "../../assets/login.png";
 import close from "../../assets/close.png";
 import Sidebar from "../elements/sidebar/Sidebar";
 
@@ -17,8 +16,7 @@ const CreateAnimeLayout = (props: AnimeProp) => {
   const handleClose = () => {
     setIsOpen(false);
   };
-  
-  
+
   return (
     <div className="flex h-screen">
       <Sidebar></Sidebar>
@@ -29,60 +27,37 @@ const CreateAnimeLayout = (props: AnimeProp) => {
             <button className="p-2 border-2 rounded-lg" onClick={handleOpen}>
               + Add Anime
             </button>
-          </div>
-          
+          </div>         
           {isOpen && (
-            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-              <div style={{backgroundColor: '#f7f5f2'}} className="flex flex-col w-full max-w-2xl overflow-hidden bg-white rounded-lg shadow-lg">
-                <div>
-                  <div style={{backgroundColor: '#EA4C88'}} className="flex items-center justify-between p-4 text-xl font-bold text-white">
-                    Fill The Form
-                    <img src={close} alt="" className="w-10 cursor-pointer" onClick={handleClose}/>
-                  </div>
-                </div>
-                <div className="flex p-6 ml-8 space-x-6">
-                  <ImageInput></ImageInput>
-                  <div className="w-2/3">
-                    {children}
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          )}
-          
+            <ModalInput handleClose={handleClose}>
+              {children}
+            </ModalInput>
+          )}       
         </div>
       </div>
     </div>
   );
 };
 
-const ImageInput = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]){
-      const file = e.target.files[0];
-      const reader = new FileReader();
-      
-      reader.onload = () => {
-        setSelectedImage(reader.result as string);
-      }
-      
-      reader.readAsDataURL(file);
-    }
-  }
+const ModalInput = ( { handleClose, children }: { handleClose: () => void, children: React.ReactNode }) => {
 
-  const triggerFileSelect = () => {
-    const fileInput = document.getElementById("file-input");
-      if (fileInput) {
-        fileInput.click();
-      }
-  };
-    
   return (
-    <div className="flex items-center justify-center w-1/3">
-      <input id="file-input" type="file" style={{display: "none"}} accept="image/*" onChange={handleImageChange}/>
-      <img src={selectedImage || images} alt="Form Image" className="rounded-lg shadow-lg" onClick={triggerFileSelect} />   
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div style={{backgroundColor: '#f7f5f2'}} className="flex flex-col w-full max-w-2xl overflow-hidden bg-white rounded-lg shadow-lg">
+        <div>
+          <div style={{backgroundColor: '#EA4C88'}} className="flex items-center justify-between p-4 text-xl font-bold text-white">
+            Fill The Form
+            <img src={close} alt="" className="w-10 cursor-pointer" onClick={handleClose}/>
+          </div>
+        </div>
+        <div className="flex p-6 ml-8 space-x-6">
+          {/* <ImageInput onFileChange={handleImageChange}></ImageInput> */}
+          <div className="w-2/3">
+            {children}
+          </div>
+        </div>
+
+      </div>
     </div>
   )
 }
